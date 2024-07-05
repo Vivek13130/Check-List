@@ -1,0 +1,395 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+      /* size */
+      --main-header-height: 3rem;
+      --set-height: 2.5rem;
+      --task-height: 3rem;
+
+            /* colors */
+
+      --bright-green : #06D001; 
+      /* for status - done */
+
+      --soft-blue: #5AB2FF;
+      /* for task borders */
+
+      --dark-blue: #050C9C;
+      /* for set border */
+
+      --bright-red : #FC4100;
+      /* for high priority */
+
+      --yellow : #FCDC2A;
+      /* for low priority */
+
+      --orange:#FF9800;
+      /* for medium priority */
+}
+
+* {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      /* border: 1px solid red; */
+}
+
+body {
+      background-image: linear-gradient(135deg, rgb(0, 0, 0), rgb(0, 178, 178));
+      background-repeat: no-repeat;
+      padding: 2rem;
+      min-height: 100vh;
+      min-width: 800px;
+}
+
+/*  common classes-------------- */
+
+.button {
+      height: 100%;
+      width: fit-content;
+
+      border: 2px solid;
+      /* border: none; */
+      border-radius: 2rem;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      padding: 1rem 0.75rem;
+
+      background-color: aliceblue;
+      transition: all 0.1s ease-in-out;
+}
+
+
+.button span {
+      font-size: 1.05rem;
+      font-weight: 600;
+}
+
+.button:hover {
+      background-color: rgb(209, 250, 255);
+      outline: 1px solid;
+      scale: 1.03;
+}
+
+.hidden {
+      display: none !important;
+}
+
+/* ------------------------------------------ */
+
+header {
+      padding: 1rem 2rem 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      border-radius: 1rem 1rem 0rem 0rem;
+      border-bottom: 2px solid rgba(128, 128, 128, 0.651);
+}
+
+#logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+#logo a {
+      text-decoration: none;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+#logo a img {
+      height: var(--main-header-height);
+      width: var(--main-header-height);
+      border: 2px solid rgb(255, 0, 43);
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+}
+
+#logo a span {
+      font-weight: 800;
+      font-size: var(--main-header-height);
+
+}
+
+/* ------------------------------------------ */
+
+#header-extra {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: var(--main-header-height);
+      gap: 1rem;
+}
+
+.task-done {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+
+      border: 2px solid;
+      border-radius: 2rem;
+      padding: 0.1rem 0.5rem;
+      height: 100%;
+
+      background-color: rgba(187, 255, 193, 0.251);
+}
+
+.task-done img {
+      height: 2rem;
+      scale: 1.3;
+}
+
+.task-done span{
+      font-weight: 600;
+}
+
+/* -------------------------------------------------------*/
+
+main {
+      background-color: white;
+      min-height: 50vh;
+      padding: 2rem;
+      border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.set {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+}
+
+.set-header {
+      background-color: #000dff1b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0.5rem 1rem 0.5rem 1.5rem;
+      border-radius: 2rem;
+      border: 2px solid var(--dark-blue);
+}
+
+
+.set-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+}
+
+.set-name img {
+      height: 1rem;
+}
+
+.set-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      height: var(--set-height);
+}
+
+.set-buttons > *{
+      background-color: white;
+}
+
+.note {
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: white;
+      cursor: pointer;
+      border: 2px solid black;
+      padding: 0.1rem;
+      transition: all 0.2s ease-in-out;
+}
+
+.note img {
+      height: 2rem;
+      vertical-align: middle;
+      scale: 0.8;
+}
+
+.note:hover{
+      outline: 1px solid black;
+}
+
+.remaining-tasks {
+      border: 2px solid black;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      height: 100%;
+      padding: 0rem 1rem;
+
+}
+
+.open-up {
+      transform: rotate(180deg);
+
+}
+
+.task-button {
+      height: 2.2rem;
+      width: 2.2rem;
+      font-size: 1.2rem;
+      padding: 0.45rem;
+      cursor: pointer;
+}
+
+
+/* --------------------------------------------------- */
+
+.task-inside-set {
+      width: 100%;
+      padding: 0.25rem 0rem 0.25rem 2.5rem;
+}
+
+.task-inside-set ul{
+      list-style: none;
+      padding-left: 0;
+}
+
+
+.task-inside-set ul li {
+      border: 2px solid var(--soft-blue);
+      border-radius: 1rem;
+
+
+      background-color: rgb(246, 254, 255);
+      padding: 0.25rem 1rem 0.25rem 2rem;
+      margin: 1rem 0rem 1rem 1rem;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+
+      position: relative;
+}
+
+.task-inside-set ul li::before {
+      content: "";
+      background-image: url(images/circle_ring.png); /* Path to your image */
+      background-size: cover; /* Ensure the image covers the entire area */
+      width: 20px; /* Set your desired width */
+      height: 20px; /* Set your desired height */
+      position: absolute;
+      left: 8px; /* Adjust positioning as needed */
+      top: 50%;
+      transform: translateY(-67%); 
+      scale: 0.7;
+
+  }
+
+.task-name {
+      font-size: 1.2rem;
+      width: 100%;
+}
+
+.task-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      height: var(--task-height);
+}
+
+
+
+.task-deadline {
+      background-color: white;
+      width: 7rem;
+      border: 2px solid black;
+      border-radius: 1rem;
+      height: fit-content;
+      padding: 0.5rem 0.25rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+
+.priority {
+      background-color: white ;
+      border: 2px solid black;
+      border-radius: 1rem;
+      height: fit-content;
+      width: fit-content;
+      padding: 0.4rem 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+}
+
+.priority:hover{
+      outline:1px solid;
+      cursor: pointer;
+}
+
+.priority > * {
+      cursor: inherit;
+}
+
+.status {
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 1rem;
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.5rem;
+      transition: all 0.2s ease;
+}
+
+.status:hover {
+      cursor: pointer;
+      outline: 1px solid black;
+}
+
+.status:hover * {
+      cursor: inherit;
+}
+
+.status button,
+.priority button {
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 50%;
+      width: 1.25rem;
+}
+
+
+.status button i,
+.priority button i {
+      transform: rotate(180deg);
+}
+
